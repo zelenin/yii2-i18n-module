@@ -29,7 +29,7 @@ Configure I18N component in common config:
 ```php
 'i18n' => [
 	'class'=> Zelenin\yii\modules\I18n\components\I18N::className(),
-	'languages' => ['ru-RU', ']
+	'languages' => ['ru-RU', 'de-DE', 'it-IT']
 ],
 ```
 

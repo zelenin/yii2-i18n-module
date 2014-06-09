@@ -10,7 +10,6 @@ class I18N extends \yii\i18n\I18N
     public $sourceMessageTable = '{{%source_message}}';
     public $messageTable = '{{%message}}';
     public $languages;
-    // todo
     public $missingTranslationHandler = ['Zelenin\yii\modules\I18n\Module', 'missingTranslation'];
 
     public function init()

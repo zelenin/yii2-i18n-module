@@ -4,8 +4,8 @@ namespace Zelenin\yii\modules\I18n\controllers;
 
 use yii\base\Model;
 use yii\web\Controller;
-use Yii;
 use yii\web\NotFoundHttpException;
+use Yii;
 use Zelenin\yii\modules\I18n\models\search\SourceMessageSearch;
 use Zelenin\yii\modules\I18n\models\SourceMessage;
 
@@ -44,7 +44,7 @@ class DefaultController extends Controller
         if (!empty($models)) {
             return $models;
         } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist'));
+            throw new NotFoundHttpException(Yii::t('zelenin/i18n', 'The requested page does not exist'));
         }
     }
 }

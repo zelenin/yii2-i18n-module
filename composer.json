@@ -30,6 +30,6 @@
     },
     "extra": {
         "bootstrap": "Zelenin\\yii\\modules\\I18n\\Bootstrap"
-    }
+    },
     "minimum-stability": "stable"
 }

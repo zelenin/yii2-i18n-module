@@ -44,7 +44,7 @@ Configure I18N component in backend config:
 Run:
 
 ```
-php yii migrate --migrationPath=@vendor\zelenin\yii2-i18n-module\migrations
+php yii migrate --migrationPath=@vendor/zelenin/yii2-i18n-module/migrations
 ```
 
 Go to http://backend.yourdomain.com/web/i18n/default/index for translating your messages

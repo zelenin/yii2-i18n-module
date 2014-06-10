@@ -11,8 +11,8 @@ class Bootstrap implements BootstrapInterface
     {
         $moduleId = Yii::$app->getModule('i18n')->id;
         $app->getUrlManager()->addRules([
-            $moduleId . '/update/<id:\d+>' => $moduleId . '/default/update',
-            $moduleId => $moduleId . '/default/index',
+            'translations/<id:\d+>' => $moduleId . '/default/update',
+            'translations' => $moduleId . '/default/index',
         ], false);
     }
 }

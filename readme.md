@@ -28,7 +28,7 @@ Configure I18N component in common config:
 
 ```php
 'i18n' => [
-	'class'=> Zelenin\yii\modules\I18n\components\I18N::className(),
+	'class' => Zelenin\yii\modules\I18n\components\I18N::className(),
 	'languages' => ['ru-RU', 'de-DE', 'it-IT']
 ],
 ```
@@ -47,7 +47,7 @@ Run:
 php yii migrate --migrationPath=@vendor/zelenin/yii2-i18n-module/migrations
 ```
 
-Go to http://backend.yourdomain.com/web/i18n/default/index for translating your messages
+Go to ```http://backend.yourdomain.com/translations``` for translating your messages
 
 ## Info
 

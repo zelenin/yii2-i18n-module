@@ -49,7 +49,21 @@ php yii migrate --migrationPath=@vendor/zelenin/yii2-i18n-module/migrations
 
 Go to ```http://backend.yourdomain.com/translations``` for translating your messages
 
+### PHP to DB import
+
+If you have an old project with PHP-based i18n you may migrate to DbSource via console.
+
+Run:
+
+```
+php yii i18n/import @common/messages
+```
+
+where ```@common/messages``` is path to app translations
+
 ## Info
+
+Component uses yii\i18n\MissingTranslationEvent for auto-add of missing translations to database
 
 See [Yii2 i18n guide](https://github.com/yiisoft/yii2/blob/master/docs/guide/tutorial-i18n.md)
 

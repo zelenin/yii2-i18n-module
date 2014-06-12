@@ -8,6 +8,9 @@ use Zelenin\yii\modules\I18n\models\SourceMessage;
 
 class SourceMessageSearch extends SourceMessage
 {
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -16,6 +19,10 @@ class SourceMessageSearch extends SourceMessage
         ];
     }
 
+    /**
+     * @param array|null $params
+     * @return ActiveDataProvider
+     */
     public function search($params)
     {
         $query = SourceMessage::find();

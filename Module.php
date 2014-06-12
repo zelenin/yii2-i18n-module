@@ -9,13 +9,19 @@ class Module extends \yii\base\Module
 {
     public $pageSize = 100;
 
+    /**
+     * @param MissingTranslationEvent $event
+     */
     public static function missingTranslation(MissingTranslationEvent $event)
     {
         $params = [
             'category' => $event->category,
             'message' => $event->message
         ];
-        $sourceMessage = SourceMessage::find()->where($params)->with('messages')->one();
+        $sourceMessage = SourceMessage::find()
+            ->where($params)
+            ->with('messages')
+            ->one();
 
         if (!$sourceMessage) {
             $sourceMessage = new SourceMessage;

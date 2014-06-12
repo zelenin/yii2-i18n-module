@@ -8,6 +8,10 @@ use yii\db\ActiveRecord;
 
 class Message extends ActiveRecord
 {
+    /**
+     * @return string
+     * @throws InvalidConfigException
+     */
     public static function tableName()
     {
         $i18n = Yii::$app->getI18n();
@@ -17,6 +21,9 @@ class Message extends ActiveRecord
         return $i18n->messageTable;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -26,6 +33,9 @@ class Message extends ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [

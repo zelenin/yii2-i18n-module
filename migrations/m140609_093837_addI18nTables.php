@@ -6,6 +6,10 @@ use yii\db\Schema;
 
 class m140609_093837_addI18nTables extends Migration
 {
+    /**
+     * @return bool|void
+     * @throws InvalidConfigException
+     */
     public function up()
     {
         $i18n = Yii::$app->getI18n();
@@ -32,7 +36,7 @@ class m140609_093837_addI18nTables extends Migration
 
     public function down()
     {
-        echo "m140609_093837_addI18nTables cannot be reverted.\n";
+        echo 'm140609_093837_addI18nTables cannot be reverted.' . PHP_EOL;
         return false;
     }
 }

@@ -18,7 +18,7 @@ class Bootstrap implements BootstrapInterface
             ], false);
         }
         if ($app instanceof \yii\console\Application) {
-            if ( !isset($app->controllerMap['i18n'])) {
+            if (!isset($app->controllerMap['i18n'])) {
                 $app->controllerMap['i18n'] = I18nController::className();
             }
         }

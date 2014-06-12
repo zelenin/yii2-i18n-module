@@ -2,12 +2,16 @@
 
 namespace Zelenin\yii\modules\I18n\models;
 
-use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
+use Yii;
 
 class SourceMessage extends ActiveRecord
 {
+    /**
+     * @return string
+     * @throws InvalidConfigException
+     */
     public static function tableName()
     {
         $i18n = Yii::$app->getI18n();
@@ -17,6 +21,9 @@ class SourceMessage extends ActiveRecord
         return $i18n->sourceMessageTable;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -24,6 +31,9 @@ class SourceMessage extends ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [
@@ -38,6 +48,9 @@ class SourceMessage extends ActiveRecord
         return $this->hasMany(Message::className(), ['id' => 'id'])->indexBy('language');
     }
 
+    /**
+     * @return array|SourceMessage[]
+     */
     public static function getCategories()
     {
         return SourceMessage::find()->select('category')->distinct('category')->asArray()->all();

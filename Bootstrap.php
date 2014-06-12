@@ -8,6 +8,9 @@ use Zelenin\yii\modules\I18n\console\controllers\I18nController;
 
 class Bootstrap implements BootstrapInterface
 {
+    /**
+     * @inheritdoc
+     */
     public function bootstrap($app)
     {
         if ($app instanceof \yii\web\Application) {

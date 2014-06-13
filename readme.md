@@ -61,6 +61,28 @@ php yii i18n/import @common/messages
 
 where ```@common/messages``` is path to app translations
 
+### Using ```yii``` category with DB
+
+Import translations from PHP files
+
+```
+php yii i18n/import @yii/messages
+```
+
+Configure I18N component:
+
+```php
+'i18n' => [
+    'class'=> Zelenin\yii\modules\I18n\components\I18N::className(),
+    'languages' => ['ru-RU', 'de-DE', 'it-IT'],
+    'translations' => [
+        'yii' => [
+            'class' => yii\i18n\DbMessageSource::className()
+        ]
+    ]
+],
+```
+
 ## Info
 
 Component uses yii\i18n\MissingTranslationEvent for auto-add of missing translations to database

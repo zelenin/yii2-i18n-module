@@ -26,10 +26,7 @@ class SourceMessageSearch extends SourceMessage
     public function search($params)
     {
         $query = SourceMessage::find();
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => ['pageSize' => Yii::$app->getModule('i18n')->pageSize]
-        ]);
+        $dataProvider = new ActiveDataProvider(['query' => $query]);
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;

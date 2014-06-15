@@ -7,7 +7,7 @@ use Zelenin\yii\modules\I18n\models\SourceMessage;
 
 class Module extends \yii\base\Module
 {
-    public $pageSize = 100;
+    public $pageSize = 50;
 
     /**
      * @param MissingTranslationEvent $event

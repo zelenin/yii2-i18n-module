@@ -14,8 +14,7 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        if ($app instanceof \yii\web\Application) {
-            $i18nModule = Yii::$app->getModule('i18n');
+        if ($app instanceof \yii\web\Application && $i18nModule = Yii::$app->getModule('i18n')) {
             $moduleId = $i18nModule->id;
             $app->getUrlManager()->addRules([
                 'translations/<id:\d+>' => $moduleId . '/default/update',

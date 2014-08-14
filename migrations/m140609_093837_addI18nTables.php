@@ -21,14 +21,14 @@ class m140609_093837_addI18nTables extends Migration
 
         $this->createTable($sourceMessageTable, [
             'id' => Schema::TYPE_PK,
-            'category' => 'VARCHAR(32) NULL',
-            'message' => 'TEXT NULL'
+            'category' => 'varchar(32) null',
+            'message' => 'text null'
         ]);
 
         $this->createTable($messageTable, [
-            'id' => Schema::TYPE_INTEGER . ' NOT NULL default 0',
-            'language' => 'VARCHAR(16) NOT NULL default ""',
-            'translation' => 'TEXT NULL'
+            'id' => Schema::TYPE_INTEGER . ' not null default 0',
+            'language' => 'varchar(16) not null default ""',
+            'translation' => 'text null'
         ]);
         $this->addPrimaryKey('id', $messageTable, ['id', 'language']);
         $this->addForeignKey('fk_source_message_message', $messageTable, 'id', $sourceMessageTable, 'id', 'cascade');

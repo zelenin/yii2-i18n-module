@@ -13,8 +13,9 @@ use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Pjax;
 use Zelenin\yii\modules\I18n\models\search\SourceMessageSearch;
+use Zelenin\yii\modules\I18n\Module;
 
-$this->title = Yii::t('zelenin/i18n', 'Translations');
+$this->title = Module::t('Translations');
 echo Breadcrumbs::widget(['links' => [
     $this->title
 ]]);

@@ -5,10 +5,11 @@ namespace Zelenin\yii\modules\I18n\controllers;
 use yii\base\Model;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\Response;
 use Yii;
+use yii\web\Response;
 use Zelenin\yii\modules\I18n\models\search\SourceMessageSearch;
 use Zelenin\yii\modules\I18n\models\SourceMessage;
+use Zelenin\yii\modules\I18n\Module;
 
 class DefaultController extends Controller
 {
@@ -54,7 +55,7 @@ class DefaultController extends Controller
         if (!empty($models)) {
             return $models;
         } else {
-            throw new NotFoundHttpException(Yii::t('zelenin/i18n', 'The requested page does not exist'));
+            throw new NotFoundHttpException(Module::t('The requested page does not exist'));
         }
     }
 }

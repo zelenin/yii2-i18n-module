@@ -9,17 +9,18 @@ use yii\web\View;
 use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use Zelenin\yii\modules\I18n\models\SourceMessage;
+use Zelenin\yii\modules\I18n\Module;
 
-$this->title = Yii::t('zelenin/i18n', 'Update') . ': ' . $model->message;
+$this->title = Module::t('Update') . ': ' . $model->message;
 echo Breadcrumbs::widget(['links' => [
-    ['label' => Yii::t('zelenin/i18n', 'Translations'), 'url' => ['index']],
+    ['label' => Module::t('Translations'), 'url' => ['index']],
     ['label' => $this->title]
 ]]);
 ?>
 <div class="message-update">
     <div class="message-form">
         <div class="panel panel-default">
-            <div class="panel-heading"><?= Yii::t('zelenin/i18n', 'Source message') ?></div>
+            <div class="panel-heading"><?= Module::t('Source message') ?></div>
             <div class="panel-body"><?= Html::encode($model->message) ?></div>
         </div>
         <?php $form = ActiveForm::begin(); ?>
@@ -31,7 +32,7 @@ echo Breadcrumbs::widget(['links' => [
         <div class="form-group">
             <?=
             Html::submitButton(
-                $model->getIsNewRecord() ? Yii::t('zelenin/i18n', 'Create') : Yii::t('zelenin/i18n', 'Update'),
+                $model->getIsNewRecord() ? Module::t('Create') : Module::t('Update'),
                 ['class' => $model->getIsNewRecord() ? 'btn btn-success' : 'btn btn-primary']
             ) ?>
         </div>

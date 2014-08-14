@@ -5,6 +5,7 @@ namespace Zelenin\yii\modules\I18n\models;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
+use Zelenin\yii\modules\I18n\Module;
 
 class Message extends ActiveRecord
 {
@@ -39,9 +40,9 @@ class Message extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('zelenin/i18n', 'ID'),
-            'language' => Yii::t('zelenin/i18n', 'Language'),
-            'translation' => Yii::t('zelenin/i18n', 'Translation')
+            'id' => Module::t('ID'),
+            'language' => Module::t('Language'),
+            'translation' => Module::t('Translation')
         ];
     }
 

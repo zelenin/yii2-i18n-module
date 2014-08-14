@@ -3,8 +3,9 @@
 namespace Zelenin\yii\modules\I18n\models;
 
 use yii\base\InvalidConfigException;
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
+use Zelenin\yii\modules\I18n\Module;
 
 class SourceMessage extends ActiveRecord
 {
@@ -37,9 +38,9 @@ class SourceMessage extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('zelenin/i18n', 'ID'),
-            'category' => Yii::t('zelenin/i18n', 'Category'),
-            'message' => Yii::t('zelenin/i18n', 'Message')
+            'id' => Module::t('ID'),
+            'category' => Module::t('Category'),
+            'message' => Module::t('Message')
         ];
     }
 

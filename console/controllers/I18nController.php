@@ -2,8 +2,8 @@
 
 namespace Zelenin\yii\modules\I18n\console\controllers;
 
-use Yii;
 use yii\console\Controller;
+use Yii;
 use yii\console\Exception;
 use yii\helpers\FileHelper;
 use Zelenin\yii\modules\I18n\models\Message;

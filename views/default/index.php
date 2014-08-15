@@ -52,7 +52,7 @@ echo Breadcrumbs::widget(['links' => [
             [
                 'attribute' => 'status',
                 'value' => function ($model, $index, $widget) {
-                        return null;
+                        return '';
                     },
                 'filter' => Html::dropDownList($searchModel->formName() . '[status]', $searchModel->status, $searchModel->getStatus(), [
                         'class' => 'form-control',

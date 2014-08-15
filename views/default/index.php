@@ -48,6 +48,16 @@ echo Breadcrumbs::widget(['links' => [
                         return $model->category;
                     },
                 'filter' => ArrayHelper::map($searchModel::getCategories(), 'category', 'category')
+            ],
+            [
+                'attribute' => 'status',
+                'value' => function ($model, $index, $widget) {
+                        return null;
+                    },
+                'filter' => Html::dropDownList($searchModel->formName() . '[status]', $searchModel->status, $searchModel->getStatus(), [
+                        'class' => 'form-control',
+                        'prompt' => ''
+                    ])
             ]
         ]
     ]);

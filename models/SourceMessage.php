@@ -5,6 +5,7 @@ namespace Zelenin\yii\modules\I18n\models;
 use yii\base\InvalidConfigException;
 use Yii;
 use yii\db\ActiveRecord;
+use Zelenin\yii\modules\I18n\models\query\SourceMessageQuery;
 use Zelenin\yii\modules\I18n\Module;
 
 class SourceMessage extends ActiveRecord
@@ -20,6 +21,11 @@ class SourceMessage extends ActiveRecord
             throw new InvalidConfigException('You should configure i18n component');
         }
         return $i18n->sourceMessageTable;
+    }
+
+    public static function find()
+    {
+        return new SourceMessageQuery(get_called_class());
     }
 
     /**
@@ -40,7 +46,8 @@ class SourceMessage extends ActiveRecord
         return [
             'id' => Module::t('ID'),
             'category' => Module::t('Category'),
-            'message' => Module::t('Message')
+            'message' => Module::t('Message'),
+            'status' => Module::t('Translation status')
         ];
     }
 

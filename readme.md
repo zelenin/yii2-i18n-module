@@ -59,7 +59,17 @@ Run:
 php yii i18n/import @common/messages
 ```
 
-where ```@common/messages``` is path to app translations
+where ```@common/messages``` is path for app translations
+
+### DB to PHP export
+
+Run:
+
+```
+php yii i18n/export @Zelenin/yii/modules/I18n/messages zelenin/modules/i18n
+```
+
+where ```@Zelenin/yii/modules/I18n/messages``` is path for app translations and ```zelenin/modules/i18n``` is translations category in DB
 
 ### Using ```yii``` category with DB
 

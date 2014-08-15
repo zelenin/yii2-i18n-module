@@ -2,8 +2,8 @@
 
 namespace Zelenin\yii\modules\I18n\console\controllers;
 
-use yii\console\Controller;
 use Yii;
+use yii\console\Controller;
 use yii\console\Exception;
 use yii\helpers\FileHelper;
 use yii\helpers\VarDumper;
@@ -16,12 +16,16 @@ class I18nController extends Controller
      * @param string $sourcePath
      * @throws Exception
      */
-    public function actionImport($sourcePath)
+    public function actionImport($sourcePath = null)
     {
+        if (!$sourcePath) {
+            $sourcePath = $this->prompt('Enter a source path');
+        }
         $sourcePath = realpath(Yii::getAlias($sourcePath));
         if (!is_dir($sourcePath)) {
             throw new Exception('The source path ' . $sourcePath . ' is not a valid directory.');
         }
+
         $translationsFiles = FileHelper::findFiles($sourcePath, ['only' => ['*.php']]);
 
         foreach ($translationsFiles as $translationsFile) {

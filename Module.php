@@ -2,8 +2,8 @@
 
 namespace Zelenin\yii\modules\I18n;
 
-use yii\i18n\MissingTranslationEvent;
 use Yii;
+use yii\i18n\MissingTranslationEvent;
 use Zelenin\yii\modules\I18n\models\SourceMessage;
 
 class Module extends \yii\base\Module
@@ -25,18 +25,20 @@ class Module extends \yii\base\Module
      */
     public static function missingTranslation(MissingTranslationEvent $event)
     {
-        $params = [
-            'category' => $event->category,
-            'message' => $event->message
-        ];
         $sourceMessage = SourceMessage::find()
-            ->where($params)
+            ->where('category = :category and message = binary :message', [
+                ':category' => $event->category,
+                ':message' => $event->message
+            ])
             ->with('messages')
             ->one();
 
         if (!$sourceMessage) {
             $sourceMessage = new SourceMessage;
-            $sourceMessage->setAttributes($params, false);
+            $sourceMessage->setAttributes([
+                'category' => $event->category,
+                'message' => $event->message
+            ], false);
             $sourceMessage->save(false);
         }
         $sourceMessage->initMessages();

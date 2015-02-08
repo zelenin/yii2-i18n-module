@@ -25,8 +25,10 @@ class Module extends \yii\base\Module
      */
     public static function missingTranslation(MissingTranslationEvent $event)
     {
+        $driver = Yii::$app->getDb()->getDriverName();
+        $caseInsensitivePrefix = $driver == 'mysql' ? 'binary' : '';
         $sourceMessage = SourceMessage::find()
-            ->where('category = :category and message = binary :message', [
+            ->where('category = :category and message = ' . $caseInsensitivePrefix . ' :message', [
                 ':category' => $event->category,
                 ':message' => $event->message
             ])

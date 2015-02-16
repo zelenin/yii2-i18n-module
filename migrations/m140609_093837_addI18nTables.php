@@ -10,7 +10,7 @@ class m140609_093837_addI18nTables extends Migration
      * @return bool|void
      * @throws InvalidConfigException
      */
-    public function up()
+    public function safeUp()
     {
         $i18n = Yii::$app->getI18n();
         if (!isset($i18n->sourceMessageTable) || !isset($i18n->messageTable)) {
@@ -21,22 +21,29 @@ class m140609_093837_addI18nTables extends Migration
 
         $this->createTable($sourceMessageTable, [
             'id' => Schema::TYPE_PK,
-            'category' => 'varchar(32) null',
-            'message' => 'text null'
+            'category' => Schema::TYPE_STRING,
+            'message' => Schema::TYPE_TEXT
         ]);
 
         $this->createTable($messageTable, [
-            'id' => Schema::TYPE_INTEGER . ' not null default 0',
-            'language' => 'varchar(16) not null default ""',
-            'translation' => 'text null'
+            'id' => Schema::TYPE_INTEGER,
+            'language' => Schema::TYPE_STRING,
+            'translation' => Schema::TYPE_TEXT
         ]);
         $this->addPrimaryKey('id', $messageTable, ['id', 'language']);
-        $this->addForeignKey('fk_source_message_message', $messageTable, 'id', $sourceMessageTable, 'id', 'cascade');
+        $this->addForeignKey('fk_source_message_message', $messageTable, 'id', $sourceMessageTable, 'id', 'cascade', 'restrict');
     }
 
-    public function down()
+    public function safeDown()
     {
-        echo 'm140609_093837_addI18nTables cannot be reverted.' . PHP_EOL;
-        return false;
+        $i18n = Yii::$app->getI18n();
+        if (!isset($i18n->sourceMessageTable) || !isset($i18n->messageTable)) {
+            throw new InvalidConfigException('You should configure i18n component');
+        }
+
+        $this->dropTable($i18n->sourceMessageTable);
+        $this->dropTable($i18n->messageTable);
+
+        return true;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Zelenin\yii\modules\I18n;
 
-use yii\base\BootstrapInterface;
 use Yii;
+use yii\base\BootstrapInterface;
 use yii\data\Pagination;
 use Zelenin\yii\modules\I18n\console\controllers\I18nController;
 

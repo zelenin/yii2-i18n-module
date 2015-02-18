@@ -31,33 +31,30 @@ echo Breadcrumbs::widget(['links' => [
             [
                 'attribute' => 'id',
                 'value' => function ($model, $index, $dataColumn) {
-                        return $model->id;
-                    },
+                    return $model->id;
+                },
                 'filter' => false
             ],
             [
                 'attribute' => 'message',
                 'format' => 'raw',
                 'value' => function ($model, $index, $widget) {
-                        return Html::a($model->message, ['update', 'id' => $model->id], ['data' => ['pjax' => 0]]);
-                    }
+                    return Html::a($model->message, ['update', 'id' => $model->id], ['data' => ['pjax' => 0]]);
+                }
             ],
             [
                 'attribute' => 'category',
                 'value' => function ($model, $index, $dataColumn) {
-                        return $model->category;
-                    },
+                    return $model->category;
+                },
                 'filter' => ArrayHelper::map($searchModel::getCategories(), 'category', 'category')
             ],
             [
                 'attribute' => 'status',
                 'value' => function ($model, $index, $widget) {
-                        return '';
-                    },
-                'filter' => Html::dropDownList($searchModel->formName() . '[status]', $searchModel->status, $searchModel->getStatus(), [
-                        'class' => 'form-control',
-                        'prompt' => ''
-                    ])
+                    return '';
+                },
+                'filter' => $searchModel->getStatus()
             ]
         ]
     ]);

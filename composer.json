@@ -1,7 +1,7 @@
 {
     "name": "zelenin/yii2-i18n-module",
     "description": "Yii2 i18n (internalization) module makes the translation of your application so simple",
-    "version": "0.1.6",
+    "version": "0.1.9",
     "type": "yii2-extension",
     "keywords": [
         "yii2",

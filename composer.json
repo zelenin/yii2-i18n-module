@@ -1,7 +1,7 @@
 {
     "name": "zelenin/yii2-i18n-module",
     "description": "Yii2 i18n (internalization) module makes the translation of your application so simple",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "type": "yii2-extension",
     "keywords": [
         "yii2",
@@ -10,7 +10,7 @@
         "translations"
     ],
     "homepage": "https://github.com/zelenin/yii2-i18n-module",
-    "time": "2014-11-02",
+    "time": "2015-03-07",
     "license": "MIT",
     "authors": [
         {
@@ -25,7 +25,8 @@
         "source": "https://github.com/zelenin/yii2-i18n-module"
     },
     "require": {
-        "yiisoft/yii2": "~2", "zelenin/yii2-widgets": "~0.0@stable"
+        "yiisoft/yii2": "~2",
+        "zelenin/yii2-semantic-ui": "*"
     },
     "autoload": {
         "psr-4": {

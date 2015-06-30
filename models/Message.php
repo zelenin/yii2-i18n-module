@@ -10,6 +10,14 @@ use Zelenin\yii\modules\I18n\Module;
 class Message extends ActiveRecord
 {
     /**
+     * @inheritdoc
+     */
+    public static function getDb()
+    {
+        return Yii::$app->get(Yii::$app->getI18n()->db);
+    }
+
+    /**
      * @return string
      * @throws InvalidConfigException
      */

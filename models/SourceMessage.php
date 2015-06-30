@@ -2,14 +2,22 @@
 
 namespace Zelenin\yii\modules\I18n\models;
 
-use yii\base\InvalidConfigException;
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
 use Zelenin\yii\modules\I18n\models\query\SourceMessageQuery;
 use Zelenin\yii\modules\I18n\Module;
 
 class SourceMessage extends ActiveRecord
 {
+    /**
+     * @inheritdoc
+     */
+    public static function getDb()
+    {
+        return Yii::$app->get(Yii::$app->getI18n()->db);
+    }
+
     /**
      * @return string
      * @throws InvalidConfigException

@@ -16,6 +16,8 @@ class I18N extends \yii\i18n\I18N
     /** @var array */
     public $missingTranslationHandler = ['Zelenin\yii\modules\I18n\Module', 'missingTranslation'];
 
+    public $db = 'db';
+
     /**
      * @throws InvalidConfigException
      */
@@ -28,6 +30,7 @@ class I18N extends \yii\i18n\I18N
         if (!isset($this->translations['*'])) {
             $this->translations['*'] = [
                 'class' => DbMessageSource::className(),
+                'db' => $this->db,
                 'sourceMessageTable' => $this->sourceMessageTable,
                 'messageTable' => $this->messageTable,
                 'on missingTranslation' => $this->missingTranslationHandler
@@ -36,6 +39,7 @@ class I18N extends \yii\i18n\I18N
         if (!isset($this->translations['app']) && !isset($this->translations['app*'])) {
             $this->translations['app'] = [
                 'class' => DbMessageSource::className(),
+                'db' => $this->db,
                 'sourceMessageTable' => $this->sourceMessageTable,
                 'messageTable' => $this->messageTable,
                 'on missingTranslation' => $this->missingTranslationHandler

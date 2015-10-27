@@ -13,6 +13,7 @@ use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Pjax;
 use Zelenin\yii\modules\I18n\models\search\SourceMessageSearch;
+use Zelenin\yii\modules\I18n\models\SourceMessage;
 use Zelenin\yii\modules\I18n\Module;
 
 $this->title = Module::t('Translations');
@@ -52,7 +53,8 @@ echo Breadcrumbs::widget(['links' => [
             [
                 'attribute' => 'status',
                 'value' => function ($model, $index, $widget) {
-                    return '';
+                    /** @var SourceMessage $model */
+                    return $model->isTranslated() ? 'Translated' : 'Not translated';
                 },
                 'filter' => $searchModel->getStatus()
             ]

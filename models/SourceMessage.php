@@ -95,4 +95,14 @@ class SourceMessage extends ActiveRecord
             $message->save();
         }
     }
+
+    public function isTranslated()
+    {
+        foreach ($this->messages as $message) {
+            if (!$message->translation) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

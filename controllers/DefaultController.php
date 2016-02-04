@@ -43,6 +43,17 @@ class DefaultController extends Controller
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $model = $this->findModel($id);
+        $model->delete();
+        return $this->redirect('index');
+    }
+
+    /**
      * @param array|integer $id
      * @return SourceMessage|SourceMessage[]
      * @throws NotFoundHttpException

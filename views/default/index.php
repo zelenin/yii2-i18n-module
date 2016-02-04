@@ -57,7 +57,14 @@ echo Breadcrumbs::widget(['links' => [
                     return $model->isTranslated() ? 'Translated' : 'Not translated';
                 },
                 'filter' => $searchModel->getStatus()
-            ]
+            ],
+            [
+                'attribute' => 'control',
+                'format' =>'raw',
+                'value' => function($model, $index, $widget){
+                    return Html::a(Module::t('Delete'), ['delete', 'id' => $model->id], ['data' => ['pjax' => 0]]);
+                }
+            ],
         ]
     ]);
     Pjax::end();
